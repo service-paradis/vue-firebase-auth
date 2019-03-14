@@ -1,0 +1,31 @@
+{
+    "name": "@service-paradis/vue-firebase-auth",
+    "version": "0.0.1-beta",
+    "description": "Vue Authentication with Firebase.",
+    "main": "src/index.ts",
+    "keywords": [
+        "vue",
+        "firebase",
+        "auth",
+        "authentication",
+        "plugin",
+        "token"
+    ],
+    "author": {
+        "name": "Alexandre Paradis",
+        "username": "service-paradis",
+        "email": "service.paradis@gmail.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/service-paradis/vue-firebase-auth"
+    },
+    "dependencies": {
+        "firebase": "^2.4.1 || >= 4.0.0"
+    },
+    "peerDependencies": {
+        "vue": "~2.3.4",
+        "vue-router": "~2.3.4"
+    }
+}
