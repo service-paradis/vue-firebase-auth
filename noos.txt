@@ -1,0 +1,100 @@
+0	00/03 -
+
+0.5	01/03 - DSM et suivis
+
+0.5	06/03 - DSM, Review/Retro
+1.5	06/03 - Planning et vérif. diverses
+
+0.5	11/03 - DSM et suivis
+1	11/03 - Bogue commentaire et affichage journal
+2.75	11/03 - Tooltips (partiel)
+
+0.5	12/03 - DSM et suivis
+0.75	12/03 - Tooltips
+0.25	12/03 - Déploiements Staging + tests
+
+2	13/03 - DSM, Review/Retro/Planning et suivis
+
+0.5	14/03 - DSM et vérifications diverses GCP
+1	14/03 - Déploiement Staging, tests et suivis
+
+3.5	15/03 - PWP-300, PWP-21, PWP-297, PWP-54 et tests
+0.5	15/03 - Déploiement Staging + tests
+5 	15/03 - Vérif. et test API/CLI Mercury Parser
+
+
+
+
+notes tooltips:
+    - Uniformisation des textes (parfois verbe d'action, parfois 2e personne, parfois 3e, ...)
+    - Bouton d'édition (crayon): pas nécessairement continuer l'analyse.
+
+
+
+
+Améliorer typage des observables
+Utiliser Observable.map plus async pipe (instead of subscribe)
+Organisation en module (avec lazy loading)
+https://github.com/auth0/angular-jwt
+compodoc (automate in CI or when building)
+Utilisation de shareReplay pour certains call dans noos.service?
+Amélioration du service avec opérateurs rxjs
+Explore Angular CDK
+
+
+
+
+server gitlab passphrase:
+.F3vJWN$r8N62mZn
+
+
+JIRA API for GitLab
+qNda0g8eIjOWC3f5rbPcB41B
+
+
+
+
+
+
+--------
+3 blocs dans le journal:
+    Carrousel
+    Missions (personnalisées davantage à l'utilisateur)
+    Nouvelles (affichées par département)
+
+2 entrées pour les informations (provenance):
+    Par un utilisateur qui l'ajoute à son portfolio (de manière publique)
+    Par Noos (à l'aide de recherche selon plusieurs critères)
+
+Éléments importants à considérer (poids différents selon le bloc d'affichage):
+    (1) Objectifs / Stratégies
+        Une info apparait dans le journal seulement si au moins un objectif est associé
+    (2) Date
+        Considération de la date d'entrée pour le moment?
+    (3) Valeur du diamant
+        Moyenne des évaluations
+        Nombre d'interactions/de commentaires (+ pour appui, - pour contestation)
+    (4) Fonction de l'utilisateur (département/division)
+        Différents poids selon:
+        (ex.)
+        (+5)  la fonction provenant de la recherche
+        (+1)  la fonction de la personne ayant ajoutée l'info
+        (+2)  la fonction d'une personne destinataire d'une diffusion
+        (+10) la fonction destinataire d'une diffusion
+    TAK
+    Ajouts au portfolio par certains membres
+        ex. Si 15 personnes ajoutent une nouvelle à leur portfolio
+    Ajouts au plan d'action par certains membres
+        ex. Si 15 personnes ajoutent une nouvelle à leur plan d'action
+    Autres actions déjà effectuées sur l'info par d'autres utilisateurs
+        ex. Nombre de diffusion
+    Type de source (crédibilité des URLs. ex. Le Devoir)
+    Critique
+    ratio Vu/Lu des autres utilisateurs
+    Groupes
+    Provenance (autre utilisateur ou NOOS)
+    Type d'utilisateur (utilisateur expert, ...)
+
+À valider
+    Ordre d'affichage pour chaque bloc (par type de personne, selon la méthode d'entrée, ...)
+    Durée d'affichage pour chaque bloc

@@ -1,12 +1,20 @@
 import { Vue } from 'vue/types/vue';
+import { User } from 'firebase';
+
+import _Vue from "vue";
+export declare function install(Vue: typeof _Vue): void;
 
 interface Firebase {
 
 }
 
 interface FirebaseAuth {
+
   check(): boolean;
-  user(): User|null
+
+  user(): User|null;
+
+  register({ email, password, redirect }: { email: string, password: string, redirect?: string}): Promise<User|null>;
 }
 
 declare module 'vue/types/vue' {

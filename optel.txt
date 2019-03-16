@@ -1,0 +1,182 @@
+0	00/03 -
+
+1	22/02 - Barcode: Tests divers de détection datamatrix
+
+1.5	08/03 - Barcode: Problème de 502
+0.5	08/03 - Flow.ai: Nouveau scan à la fin du cycle
+0.5	08/03 - hOpkins: Config. Initiale du projet
+2.75	08/03 - hOpkins: Layouts
+
+0.5	11/03 - Certa: Préparation pour la migration
+0.75	11/03 - Certa: Migration
+
+0.5	13/03 - Certa: Migration des URLs + tests
+0.75	13/03 - hOpkins: Début pour l'auth. Firebase
+
+4.25	14/03 - hOpkins: Progrès design et connexion
+0.25	14/03 - hOpkins: Discussion équipe Optel
+
+
+invitation des gars Optel au repo quand il y aura quelque chose de tangible
+
+
+
+CERTA MIGRATION
+* hosting
+    - democerta.optelgroup.com
+    - dispensingdemo.optelgroup.com
+* storage (gs://certademo)
+    * docs
+    * images
+* database (https://certademo.firebaseio.com/)
+* Authentication
+    - dispensingdemo.optelgroup.com
+    - democerta.optelgroup.com
+
+CERTA TESTS
+- hosting
+    - democerta.optelgroup.com
+    - dispensingdemo.optelgroup.com
+- storage (gs://certademo)
+    - docs
+    - images
+- database (https://certademo.firebaseio.com/)
+- Authentication
+
+CERTA CLEANUP
+- hosting
+    - democerta.optelgroup.com
+    - dispensingdemo.optelgroup.com
+- storage (gs://certademo)
+    - docs
+    - images
+- database (https://certademo.firebaseio.com/)
+- Authentication
+
+
+
+****************************
+
+hOpkins / Product Explorer
+
+
+Phase 1:
+- Login (Firebase Authentication - Email/Password)
+    - Problème: Utilisation de l'auth par Certa...
+- Account Creation limited to Optel Domain (Firebase Authentication - Email/Password)
+    - Problème: Utilisation de l'auth par Certa...
+- User Record Creation in database
+- Manual Entry Search (using GTIN and a facultative Serial Number)
+- Barcode Scanner (which kind of codes? - datamatrix, qr, ...)
+- Product Details Page (image, title and other avalaibles properties)
+- Product Origins Page
+
+
+Phase 2:
+- Search History
+- Account Creation for other users
+- Multiple Codes in a single scan using Scanner
+- Chat
+- Google Auth
+- image du product-details (pourrait être un slideshow)
+- Product details non fixé dans le béton
+- Potentiellement white labeling (logo et titre de l'application)
+- Avoir une whitelist en BD pour l'inscription (regex)
+
+****************************
+
+
+
+Trashifier:
+- Repartir à neuf pour la BD
+
+* Authentification entre l'app et le service
+* Gestion des erreurs d'accès à la caméra
+* Gestion des erreurs de prédiction
+* Gestion des prévision sans résultat
+* Actions des boutons suite à une prédiction (good)
+* Actions des boutons suite à une prédiction (wrong)
+* Sauvegarde des images dans Firebase Storage
+* Sauvegarde des prédictions dans Firestore
+* Sauvegarde de la conclusion (good)
+* Sauvegarde de la conclusion (wrong)
+- Gestion des erreurs pour la récupération des instructions
+- Gestion des instructions manquantes
+* Permission pour la géolocalisation
+    - Demande d'accès seulement avant l'étape des instructions
+* Sauvegarde de la géolocalisation dans Firestore
+* Gestion des erreurs d'accès à la géolocalisation
+* Responsiveness
+* Cancel button to get back to camera (everywhere but in camera)
+    * Remplacer par restart à la fin du cycle
+* Niveau de confiance plus explicite
+* loading entre la prise de photo et l'affichage du résultat
+- Reverse Geocoding (https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding)
+- Service séparé pour la récupération des instructions (Firebase functions?)
+* Afficher BETA
+* Contact us trashifierinfo@gmail (menu burger?)
+* Si résultat vide, mini transformation de l'image et 2e tentative
+* Demander la saisie de l'utilisateur en plan B
+    * Afficher le lien vers recyc-quebec ensuite
+- Nouvelle structure de BD
+* Centrer logo Trashifier
+* Permettre le scroll dans les instructions
+* Gérer les phrases plus longue les instructions
+* Conserver le browser dans la BD
+* Conserver le OS dans la BD
+- Conserver la langue dans la BD
+- Offrir la possibilité de changer la caméra
+? Bogues:
+    ? iphone safari: fonctionne, mais c'est la front cam
+    ? iphone chrome: loading à l'infini
+* Conserver le temps entre le moment où la photo a été prise et le moment où la prédiction est affichée
+    - Chart dans l'admin
+- Faire un autre projet pour l'édition des instructions
+    - Connexion utilisateur
+    - Par région, permission d'éditer les instructions
+- Conserver si l'utilisateur n'accepte pas de donner sa position
+- Fallback backend pour la position de l'utilisateur s'il ne donne pas la permission
+- Possibilité d'uploader une photo
+- BD qui contient le # du modèle (et les classes du modèle? à moins d'être en mesure de l'avoir par l'API)
+    - Édition par l'admin (selon les zones géo)
+- Pub/Sub, pousser les data aux différentes étapes
+
+
+
+Wishlist
+- page admin
+    - liste les images avec le statut provenant de la database
+        - filtre sur le statut
+    - Stats sur les prédictions (ex. nb de prédiction par jours (et depuis le début) avec combien de good/wrong)
+    - détails avec les wrong. capable de les afficher (et les reclassifier)
+    - histogramme des statut (unknown, good, wrong) - depuis le début et du jour
+    - Stat browser / OS / lang
+
+
+
+
+https://cloud.google.com/vision/docs/reference/rest/v1/images/annotate
+
+{
+"requests": [
+    {
+    "image": {
+        "content": "..."
+    },
+    "features": [
+        {
+        "type": "LABEL_DETECTION",
+        "maxResults": 1
+        }
+    ]
+    }
+]
+}
+
+
+
+http://localhost:8080/auth/%2CIT2VQP)VIVSCN6JFM%20JPDVS3
+
+
+Firebase CI Token:
+1/Hn2hXrFmyZZalqyqkLuk6wi3dewtrleQypI10h6REZM

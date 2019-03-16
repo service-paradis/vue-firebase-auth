@@ -86,23 +86,41 @@ Each route can define it's own specific redirect.
 #### Usage
 ```html
 <div>
-    {{ $auth.user().displayName }}
+    {{ $firebaseAuth.user().displayName }}
 </div>
 ```
 
 ### check
 * Check to see if the user is logged in.
-// TODO roles as argument
+// TODO roles as argument?
 
 ```html
-<router-link v-if="!$auth.check()"
+<router-link v-if="!$firebaseAuth.check()"
              :to="'/login'">
     login
 </router-link>
-<a v-if="$auth.check()"
-   @:click="$auth.logout()">
+<a v-if="$firebaseAuth.check()"
+   @:click="$firebaseAuth.logout()">
     logout
 </a>
+```
+
+### register
+* Will register user using Firebase Authentication with email and password.
+* Required parameters: `email` and `password`
+* Accepts `redirect` parameter which is passed directly to router when registration is successful. (default to '/')
+// TODO other types
+
+```js
+const { email, password } = this;
+this.$firebaseAuth.register({ email, password })
+    .then((user) => {
+        console.log('User created successfully:', user);
+        // You can create user related record in database here
+    }).catch((error) => {
+        console.error('Registration Failed:', error);
+        // Handle error here
+    });
 ```
 
 

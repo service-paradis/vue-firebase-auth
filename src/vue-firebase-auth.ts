@@ -24,16 +24,29 @@ export default class FirebaseAuth {
   }
 
   check(): boolean {
-    return this.user() !== null; // TODO test
+    return this.user() !== null;
   }
 
   user(): User|null {
-    return this.firebase.auth().currentUser; // TODO test
+    return this.firebase.auth().currentUser;
   }
 
-  register() {
-    // TODO (with different types?)
-  }
+  register({ email, password, redirect = '/' }:
+    { email: string, password: string, redirect: string}): Promise<User|null> {
+    return new Promise((resolve, reject) => {
+      // TODO other types?
+      this.firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential: firebase.auth.UserCredential) => {
+          if (this.router && redirect) {
+            this.router.push(redirect);
+          }
+          resolve(this.user());
+      }).catch((error) => {
+          console.error(error);
+          reject(error);
+      })
+    });
+  } // TODO test error
 
   login() {
     // TODO (with different types?)

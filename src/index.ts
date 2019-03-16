@@ -14,7 +14,7 @@ export default {
             options = {},
             router = null,
             axios = null,
-          }: InstallParameters) { // TODO axios type
+          }: InstallParameters) {
 
     const firebase = Firebase.initializeApp(project);
     const firebaseAuth = new FirebaseAuth(firebase, options, router, axios);

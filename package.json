@@ -21,6 +21,7 @@
         "type": "git",
         "url": "https://github.com/service-paradis/vue-firebase-auth"
     },
+    "typings": "src/index.d.ts",
     "dependencies": {
         "firebase": "^2.4.1 || >= 4.0.0"
     },
