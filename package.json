@@ -1,6 +1,6 @@
 {
     "name": "@service-paradis/vue-firebase-auth",
-    "version": "0.0.1-beta",
+    "version": "0.0.2-beta",
     "description": "Vue Authentication with Firebase.",
     "main": "src/index.ts",
     "keywords": [
