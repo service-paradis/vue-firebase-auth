@@ -123,6 +123,39 @@ this.$firebaseAuth.register({ email, password })
     });
 ```
 
+### login
+* Will login user using Firebase Authentication with email and password.
+* Required parameters: `email` and `password`
+* Accepts `redirect` parameter which is passed directly to router when login is successful. (default to '/')
+// TODO other types
+
+```js
+const { email, password } = this;
+this.$firebaseAuth.login({ email, password })
+    .then((user) => {
+        console.log('User logged in successfully:', user);
+        // Some actions on login here
+    }).catch((error) => {
+        console.error('Login Failed:', error);
+        // Handle error here
+    });
+```
+
+### logout
+* Will logout user using Firebase.
+* Accepts `redirect` parameter which is passed directly to router when logout is successful. (default to authRedirect option)
+
+```js
+this.$firebaseAuth.logout({ redirect = '/signed-out' })
+    .then(() => {
+        console.log('User logged out successfully.');
+        // Some actions on logout here
+    }).catch((error) => {
+        console.error('Logout Failed:', error);
+        // Should not happen, but handle potential error here
+    });
+```
+
 
 ## WIP (Coming soon)
 
@@ -132,9 +165,7 @@ this.$firebaseAuth.register({ email, password })
   - token()?
   - fetch()?
   - refresh()?
-  - register()
-  - login() (with different types?)
-  - logout()
+- Different types for register/login (Google, Facebook, etc.)
 - router meta management for role?
 - Axios Interceptors
   - retrieve received new token when available on response

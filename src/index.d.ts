@@ -14,7 +14,11 @@ interface FirebaseAuth {
 
   user(): User|null;
 
-  register({ email, password, redirect }: { email: string, password: string, redirect?: string}): Promise<User|null>;
+  register({ email, password, redirect }: { email: string, password: string, redirect?: string }): Promise<User|null>;
+
+  login({ email, password, redirect }: { email: string, password: string, redirect?: string }): Promise<User|null>;
+
+  logout(params?: null|{ redirect?: null|string }): Promise<null>;
 }
 
 declare module 'vue/types/vue' {

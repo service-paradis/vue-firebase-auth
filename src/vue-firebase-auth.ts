@@ -32,28 +32,50 @@ export default class FirebaseAuth {
   }
 
   register({ email, password, redirect = '/' }:
-    { email: string, password: string, redirect: string}): Promise<User|null> {
+    { email: string, password: string, redirect?: string }): Promise<User|null> {
     return new Promise((resolve, reject) => {
-      // TODO other types?
+      // TODO other registration types?
       this.firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential: firebase.auth.UserCredential) => {
-          if (this.router && redirect) {
-            this.router.push(redirect);
-          }
-          resolve(this.user());
-      }).catch((error) => {
-          console.error(error);
-          reject(error);
-      })
+        .then((userCredential: firebase.auth.UserCredential) => {
+            if (this.router && redirect) {
+              this.router.push(redirect);
+            }
+            resolve(this.user());
+        }).catch((error) => {
+            reject(error);
+        })
     });
-  } // TODO test error
-
-  login() {
-    // TODO (with different types?)
   }
 
-  logout() {
-    // TODO
+  login({ email, password, redirect = '/' }:
+    { email: string, password: string, redirect?: string }): Promise<User|null> {
+    return new Promise((resolve, reject) => {
+      // TODO other login types?
+      this.firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential: firebase.auth.UserCredential) => {
+            if (this.router && redirect) {
+              this.router.push(redirect);
+            }
+            resolve(this.user());
+        }).catch((error) => {
+            reject(error);
+        })
+    });
+  }
+
+  logout({ redirect = null }: null|{ redirect?: null|string } = { redirect: null }) {
+    const authRedirect = redirect || this.options.authRedirect;
+    return new Promise((resolve, reject) => {
+      this.firebase.auth().signOut()
+        .then(() => {
+            if (this.router && authRedirect) {
+              this.router.push(authRedirect);
+            }
+            resolve();
+        }).catch((error) => {
+            reject(error);
+        })
+    });
   }
 
 
@@ -83,7 +105,7 @@ export default class FirebaseAuth {
 
   private initRouter() {
     if (this.router) {
-      this.router.beforeEach((to: Route, from: Route, next: any) => { // TODO types?
+      this.router.beforeEach((to: Route, from: Route, next: any) => { // TODO typings
         // We wait until firebase is ready before continuing
         this.firebaseReady().then(() => {
           // TODO to.matched?
