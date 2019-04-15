@@ -13,11 +13,10 @@ export default {
             project,
             options = {},
             router = null,
-            axios = null,
-          }: InstallParameters) {
+          }: InstallParameters) { // TODO axios?
 
     const firebase = Firebase.initializeApp(project);
-    const firebaseAuth = new FirebaseAuth(firebase, options, router, axios);
+    const firebaseAuth = new FirebaseAuth(firebase, options, router);
 
     Vue.prototype.Firebase = Firebase;
     Vue.prototype.$firebase = firebase;
@@ -30,5 +29,4 @@ interface InstallParameters {
   project: any; // TODO type
   options: FirebaseAuthOptions;
   router: null|VueRouter;
-  axios: null|any; // TODO type
 }

@@ -11,16 +11,14 @@ export default class FirebaseAuth {
   private firebase: Firebase.app.App;
   private options: FirebaseAuthOptions;
   private router: null|VueRouter;
-  private axios: null|any;
 
-  constructor(firebase: any, options: FirebaseAuthOptions, router: null|VueRouter, axios: null|any) { // TODO axios type
+  constructor(firebase: any, options: FirebaseAuthOptions, router: null|VueRouter) {
     this.firebase = firebase;
     this.options = new FirebaseAuthOptions(options);
     this.router = router;
-    this.axios = axios;
 
     this.initRouter();
-    // TODO if an axios options have been added, add interceptors for token
+    // TODO add axios options with interceptors for token?
   }
 
   check(): boolean {
@@ -116,8 +114,8 @@ export default class FirebaseAuth {
           if (authMeta && (authMeta === true/* || authMeta.constructor === Array // TODO roles as array or string?*/)) {
             if (!this.check()) {
               next(authRedirectMeta);
-            } /* TODO else if to check roles and redirect to forbiddenRedirect if incorrect */ else {
-              next(); // TODO test
+            } /* // TODO else if to check roles and redirect to forbiddenRedirect if incorrect */ else {
+              next();
             }
           } else if (authMeta === false && this.check()) {
             // If the route is unaccessible from logged in users

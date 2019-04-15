@@ -1,7 +1,7 @@
 import { Vue } from 'vue/types/vue';
 import { User } from 'firebase';
 
-import _Vue from "vue";
+import _Vue from 'vue';
 export declare function install(Vue: typeof _Vue): void;
 
 interface Firebase {
@@ -28,4 +28,4 @@ declare module 'vue/types/vue' {
   }
 }
 
-// TODO !!!!!
+// TODO

@@ -1,6 +1,6 @@
 {
     "name": "@service-paradis/vue-firebase-auth",
-    "version": "0.0.2-beta",
+    "version": "0.0.3",
     "description": "Vue Authentication with Firebase.",
     "main": "src/index.ts",
     "keywords": [
@@ -23,10 +23,10 @@
     },
     "typings": "src/index.d.ts",
     "dependencies": {
-        "firebase": "^2.4.1 || >= 4.0.0"
+        "firebase": ">= 4.0.0"
     },
     "peerDependencies": {
-        "vue": "~2.3.4",
-        "vue-router": "~2.3.4"
+        "vue": "^2.5.0",
+        "vue-router": "^2.5.0"
     }
 }

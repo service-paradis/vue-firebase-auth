@@ -9,4 +9,4 @@ export default class FirebaseAuthOptions {
       this.authRedirect = authRedirect;
   }
 
-} // TODO rename file
+} // TODO rename file (no more an interface)

@@ -5,7 +5,7 @@ A simple light-weight authentication library for Vue.
 ## Installation
 
 ```bash
-TODO: npm install @service-paradis/vue-firebase-auth
+npm install @service-paradis/vue-firebase-auth
 ```
 
 ## Usage
